@@ -1,0 +1,65 @@
+helados = [["Vainilla",800],["Crema",700],["Manjar",900]]
+agregados = [["Chocolate",500],["Frambuesa",300]]
+cuenta=0
+canthelados=0
+print("BIENVENIDO A LA TIENDA\n")
+cuenta=0
+i=0
+llave2=True
+trampa=" un "
+while i < len(helados):
+    print(i+1,"-",helados[i][0],"- $",helados[i][1])
+    i = i+1
+while llave2:
+    preg=input("Desea comprar"+trampa+"helado: (si/no):")
+    if preg == "si":
+        canthelados=canthelados+1
+        trampa=" otro "
+        x=True
+        while x:
+            bolitas=input("Ingrese todas las opciones que desea: ")
+            listabolitas=[]
+            for k in bolitas:
+                listabolitas.append(k)
+            x=False
+            lista2=[]
+            for n in listabolitas:
+                varn = int(n)
+                lista2.append(varn)
+            lista3=[]
+            lista5=[]
+            for m in lista2:
+                if m<(len(helados)+1) and m>0:
+                    lista3.append(m)
+                else:
+                    lista5.append(m)
+        print("Las opciones:",lista5,"no se considerarán y se obviarán")
+        for q in lista3:
+            t=q-1
+            cuenta=cuenta+helados[t][1]
+        j=0
+        listaayuda=[]
+        while j < len(agregados):
+            desea = input("Desea agregar "+agregados[j][0]+" por un valor de $"+str(agregados[j][1])+": (si/no): ")
+            if desea=="si":
+                listaayuda.append(agregados[j][1])
+                j=j+1
+            elif desea == "no":
+                j=j+1
+            else:
+                print("ingrese si o no")
+        contx=0
+        for w in listaayuda:
+            contx=contx+w
+
+        cuenta=cuenta+contx
+        print(cuenta)
+    elif preg=="no":
+        llave2=False
+    else:
+        print("Escriba si o no")
+print("Usted compro",canthelados,"helados por un precio de $",cuenta)
+#print(listabolitas)
+#print(lista2)
+#print(lista3)
+#print(cuenta)
